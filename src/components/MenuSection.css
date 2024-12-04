@@ -1,0 +1,145 @@
+/* Estilos Generales */
+.menu-section {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background: linear-gradient(to bottom, #f9f9f9, #ececec);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.menu-section.expanded {
+  background: linear-gradient(to bottom, #ffffff, #f1f1f1);
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #444;
+  text-align: center;
+  position: relative;
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.section-title:hover {
+  color: #e74c3c;
+  transform: scale(1.05);
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.section-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: scaleY(0);
+  transition: max-height 0.7s ease, opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-items.open {
+  max-height: 1000px;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.menu-card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(50px) scale(0.9);
+  opacity: 0;
+  animation: fadeSlideUp 0.5s ease forwards;
+}
+
+.menu-card:hover {
+  transform: translateY(0) scale(1.05) rotateZ(1deg);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease;
+}
+
+.menu-card-image:hover {
+  transform: scale(1.1);
+}
+
+.menu-card-content {
+  padding: 10px;
+}
+
+.menu-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.menu-card-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+.menu-card-price {
+  font-size: 1.2rem;
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Animaciones */
+@keyframes fadeSlideUp {
+  from {
+    transform: translateY(50px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .menu-card {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-section {
+    padding: 10px;
+  }
+
+  .menu-card {
+    padding: 10px;
+  }
+
+  .menu-card-title {
+    font-size: 1.2rem;
+  }
+
+  .menu-card-description {
+    font-size: 0.9rem;
+  }
+}
